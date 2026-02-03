@@ -20,7 +20,6 @@ export default function GitHubStats() {
   const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
-    // Fetch GitHub stats
     const fetchStats = async () => {
       try {
         const response = await fetch('https://api.github.com/users/hyusband');

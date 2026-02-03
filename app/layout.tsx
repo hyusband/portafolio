@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/lib/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Andres | Backend Engineer & Systems Developer",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://yourportfolio.com",
+    url: "https://andres.322.lat",
     title: "Andres | Backend Engineer & Systems Developer",
     description: "Backend engineer specializing in high-performance systems, load balancers, and memory optimization.",
     siteName: "Andres Portfolio",
@@ -42,7 +43,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
