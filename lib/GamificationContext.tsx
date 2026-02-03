@@ -23,12 +23,12 @@ interface GamificationContextType {
 const GamificationContext = createContext<GamificationContextType | undefined>(undefined);
 
 const defaultAchievements: Achievement[] = [
-  { id: 'first_visit', name: 'First Contact', description: 'Visited the portfolio', icon: '👋', unlocked: false },
-  { id: 'explorer', name: 'Explorer', description: 'Visited all sections', icon: '🗺️', unlocked: false },
-  { id: 'theme_changer', name: 'Style Master', description: 'Changed the theme', icon: '🎨', unlocked: false },
-  { id: 'linguist', name: 'Polyglot', description: 'Switched languages', icon: '🌐', unlocked: false },
-  { id: 'konami_master', name: 'Konami Master', description: 'Activated Matrix Mode', icon: '🎮', unlocked: false },
-  { id: 'curious', name: 'Curious Mind', description: 'Opened the theme customizer', icon: '🔍', unlocked: false },
+  { id: 'first_visit', name: 'First Contact', description: 'Visited the portfolio', icon: 'USER', unlocked: false },
+  { id: 'explorer', name: 'Explorer', description: 'Visited all sections', icon: 'MAP', unlocked: false },
+  { id: 'theme_changer', name: 'Style Master', description: 'Changed the theme', icon: 'PALETTE', unlocked: false },
+  { id: 'linguist', name: 'Polyglot', description: 'Switched languages', icon: 'GLOBE', unlocked: false },
+  { id: 'konami_master', name: 'Konami Master', description: 'Activated Matrix Mode', icon: 'GAMEPAD', unlocked: false },
+  { id: 'curious', name: 'Curious Mind', description: 'Opened the theme customizer', icon: 'SEARCH', unlocked: false },
 ];
 
 const totalSections = 7; // Hero, Backend, GitHub, Skills, Projects, Experience, Contact

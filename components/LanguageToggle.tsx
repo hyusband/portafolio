@@ -1,6 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/lib/LanguageContext';
+import { Icons } from './Icons';
 
 export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
@@ -12,11 +13,10 @@ export default function LanguageToggle() {
         className="language-toggle-btn"
         aria-label="Toggle language"
       >
-        <span className="text-hw-text-dim font-mono lang-label">LANG:</span>
-        <span className="text-hw-terminal font-mono lang-value">
-          {language === 'en' ? 'EN' : 'ES'}
+        <Icons.Globe />
+        <span className="text-hw-terminal font-mono" style={{ marginLeft: '0.5rem' }}>
+          {language.toUpperCase()}
         </span>
-        <span className="text-hw-text-dim font-mono lang-arrow">⟷</span>
       </button>
     </div>
   );

@@ -11,6 +11,7 @@ import ThemeCustomizer from '@/components/ThemeCustomizer';
 import AchievementsPanel from '@/components/AchievementsPanel';
 import KonamiCode from '@/components/KonamiCode';
 import MatrixRain from '@/components/MatrixRain';
+import { Icons } from '@/components/Icons';
 
 export default function PortfolioContent() {
   const { t } = useLanguage();
@@ -191,10 +192,14 @@ export default function PortfolioContent() {
       </section>
 
       {/* GitHub Stats */}
-      <GitHubStats />
+      <div className="reveal-on-scroll">
+        <GitHubStats />
+      </div>
 
       {/* Skills Grid */}
-      <SkillsGrid />
+      <div className="reveal-on-scroll">
+        <SkillsGrid />
+      </div>
 
       {/* Projects - Simplified for now, full translation in next step */}
       <section id="projects" className="projects-section reveal-on-scroll">
@@ -207,7 +212,7 @@ export default function PortfolioContent() {
 
           <div className="projects-grid">
             {/* Projects will be translated in components */}
-            <div className="metric-card">
+            <div className="metric-card reveal-on-scroll">
               <div className="card-header">
                 <h3 className="text-hw-text font-mono card-title">BitBridge</h3>
                 <div className="status-indicator status-active" />
@@ -240,7 +245,7 @@ export default function PortfolioContent() {
             </div>
 
             {/* Other projects - similar pattern */}
-            <div className="metric-card">
+            <div className="metric-card reveal-on-scroll">
               <div className="card-header">
                 <h3 className="text-hw-text font-mono card-title">offsets-finder</h3>
                 <div className="status-indicator status-active" />
@@ -272,7 +277,7 @@ export default function PortfolioContent() {
               </div>
             </div>
 
-            <div className="metric-card">
+            <div className="metric-card reveal-on-scroll">
               <div className="card-header">
                 <h3 className="text-hw-text font-mono card-title">DevSync</h3>
                 <div className="status-indicator status-active" />
@@ -304,7 +309,7 @@ export default function PortfolioContent() {
               </div>
             </div>
 
-            <div className="metric-card">
+            <div className="metric-card reveal-on-scroll">
               <div className="card-header">
                 <h3 className="text-hw-text font-mono card-title">onless-choice</h3>
                 <div className="status-indicator status-active" />
@@ -340,10 +345,12 @@ export default function PortfolioContent() {
       </section>
 
       {/* Experience Timeline */}
-      <ExperienceTimeline />
+      <div className="reveal-on-scroll">
+        <ExperienceTimeline />
+      </div>
 
       {/* The Bridge Section */}
-      <section className="bridge-section">
+      <section className="bridge-section reveal-on-scroll">
         <div className="section-container">
           <h2 className="section-title">{t.bridge.title}</h2>
           
@@ -356,7 +363,7 @@ export default function PortfolioContent() {
               <div className="bridge-grid">
                 <div className="bridge-side">
                   <div className="bridge-icon bg-hw-electric">
-                    <span>🌐</span>
+                    <Icons.Globe />
                   </div>
                   <h3 className="text-hw-electric font-mono bridge-title">{t.bridge.highLevel}</h3>
                   <div className="bridge-list">
@@ -378,7 +385,7 @@ export default function PortfolioContent() {
 
                 <div className="bridge-side">
                   <div className="bridge-icon bg-hw-rust">
-                    <span>⚙️</span>
+                    <Icons.Settings />
                   </div>
                   <h3 className="text-hw-rust font-mono bridge-title">{t.bridge.lowLevel}</h3>
                   <div className="bridge-list">
@@ -404,7 +411,9 @@ export default function PortfolioContent() {
       </section>
 
       {/* Contact Form */}
-      <ContactForm />
+      <div className="reveal-on-scroll">
+        <ContactForm />
+      </div>
 
       {/* Footer */}
       <footer className="footer">

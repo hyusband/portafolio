@@ -2,6 +2,7 @@
 
 import { useGamification } from '@/lib/GamificationContext';
 import { useState } from 'react';
+import { Icons } from './Icons';
 
 export default function AchievementsPanel() {
   const { achievements, progress } = useGamification();
@@ -16,7 +17,7 @@ export default function AchievementsPanel() {
         className="achievements-btn"
         aria-label="Achievements"
       >
-        <span className="text-hw-terminal font-mono">🏆</span>
+        <Icons.Trophy />
         <span className="achievement-badge">{unlockedCount}/{achievements.length}</span>
       </button>
 
@@ -24,7 +25,9 @@ export default function AchievementsPanel() {
         <div className="achievements-dropdown">
           <div className="achievements-header">
             <span className="text-hw-terminal font-mono">$ achievements --list</span>
-            <button onClick={() => setIsOpen(false)} className="close-btn">✕</button>
+            <button onClick={() => setIsOpen(false)} className="close-btn">
+              <Icons.X />
+            </button>
           </div>
 
           {/* Progress Bar */}
@@ -44,7 +47,20 @@ export default function AchievementsPanel() {
                 key={achievement.id}
                 className={`achievement-item ${achievement.unlocked ? 'unlocked' : 'locked'}`}
               >
-                <span className="achievement-icon">{achievement.icon}</span>
+                <span className="achievement-icon">
+                  {achievement.unlocked ? (
+                    <>
+                      {achievement.icon === 'USER' && <Icons.User />}
+                      {achievement.icon === 'MAP' && <Icons.Map />}
+                      {achievement.icon === 'PALETTE' && <Icons.Palette />}
+                      {achievement.icon === 'GLOBE' && <Icons.Globe />}
+                      {achievement.icon === 'GAMEPAD' && <Icons.Gamepad />}
+                      {achievement.icon === 'SEARCH' && <Icons.Search />}
+                    </>
+                  ) : (
+                    <Icons.Lock />
+                  )}
+                </span>
                 <div className="achievement-info">
                   <div className="text-hw-text font-mono achievement-name">
                     {achievement.unlocked ? achievement.name : '???'}
@@ -53,7 +69,11 @@ export default function AchievementsPanel() {
                     {achievement.unlocked ? achievement.description : 'Locked'}
                   </div>
                 </div>
-                {achievement.unlocked && <span className="unlock-badge">✓</span>}
+                {achievement.unlocked && (
+                  <span className="unlock-badge">
+                    <Icons.Check />
+                  </span>
+                )}
               </div>
             ))}
           </div>

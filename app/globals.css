@@ -83,9 +83,12 @@ body {
 /* Grid Background Effect */
 .grid-bg {
   background-image: 
-    linear-gradient(to right, var(--color-hw-darker) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-hw-darker) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
+  mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1) 100px, black 300px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1) 100px, black 300px);
 }
 
 /* Scanline Effect */
@@ -105,7 +108,7 @@ body {
   opacity: 0.1;
   animation: var(--animate-scan);
   pointer-events: none;
-  z-index: 1000;
+  z-index: 50;
 }
 
 /* Terminal Cursor */
@@ -516,9 +519,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  opacity: 0.2;
-  border: 2px solid currentColor;
+  background: var(--color-hw-darker);
+  border: 1px solid currentColor;
+}
+
+.bridge-icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .bridge-title {
@@ -1323,7 +1330,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
   transition: all 0.3s;
 }
 
@@ -1331,6 +1337,10 @@ html {
   border-color: var(--color-hw-terminal);
   box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
   transform: scale(1.05);
+}
+
+.theme-toggle-btn svg {
+  color: var(--color-hw-terminal);
 }
 
 .theme-panel {
@@ -1371,13 +1381,20 @@ html {
   border: none;
   color: var(--color-hw-text-dim);
   cursor: pointer;
-  font-size: 1.25rem;
   padding: 0.25rem;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .close-btn:hover {
   color: var(--color-hw-terminal);
+}
+
+.close-btn svg {
+  width: 20px;
+  height: 20px;
 }
 
 .theme-section {
@@ -1514,7 +1531,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
   transition: all 0.3s;
   position: relative;
 }
@@ -1523,6 +1539,10 @@ html {
   border-color: var(--color-hw-terminal);
   box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
   transform: scale(1.05);
+}
+
+.achievements-btn svg {
+  color: var(--color-hw-terminal);
 }
 
 .achievement-badge {
@@ -1607,6 +1627,14 @@ html {
 
 .achievement-icon {
   font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+}
+
+.achievement-icon svg {
+  color: var(--color-hw-text-dim);
 }
 
 .achievement-info {
@@ -1624,7 +1652,14 @@ html {
 
 .unlock-badge {
   color: var(--color-hw-terminal);
-  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unlock-badge svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Konami Notification */
@@ -1652,13 +1687,25 @@ html {
   }
 }
 
-@media (max-width: 768px) {
-  .achievements-panel {
-    top: 7rem;
-    right: 1rem;
-  }
-
-  .achievements-dropdown {
-    width: 280px;
-  }
+/* Scroll Reveal Animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
+
+.reveal-on-scroll.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveals for grid items or children */
+.reveal-visible .stagger-reveal {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.reveal-visible .stagger-reveal:nth-child(1) { animation-delay: 0.1s; }
+.reveal-visible .stagger-reveal:nth-child(2) { animation-delay: 0.2s; }
+.reveal-visible .stagger-reveal:nth-child(3) { animation-delay: 0.3s; }
+.reveal-visible .stagger-reveal:nth-child(4) { animation-delay: 0.4s; }

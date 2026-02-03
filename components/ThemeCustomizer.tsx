@@ -2,6 +2,7 @@
 
 import { useTheme, themes, ColorScheme, FontSize } from '@/lib/ThemeContext';
 import { useState } from 'react';
+import { Icons } from './Icons';
 
 export default function ThemeCustomizer() {
   const { colorScheme, setColorScheme, fontSize, setFontSize } = useTheme();
@@ -14,14 +15,16 @@ export default function ThemeCustomizer() {
         className="theme-toggle-btn"
         aria-label="Theme customizer"
       >
-        <span className="text-hw-text-dim font-mono">🎨</span>
+        <Icons.Palette />
       </button>
 
       {isOpen && (
         <div className="theme-panel">
           <div className="theme-panel-header">
             <span className="text-hw-terminal font-mono">$ theme --customize</span>
-            <button onClick={() => setIsOpen(false)} className="close-btn">✕</button>
+            <button onClick={() => setIsOpen(false)} className="close-btn">
+              <Icons.X />
+            </button>
           </div>
 
           {/* Color Schemes */}
