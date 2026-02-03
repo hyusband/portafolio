@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/LanguageContext";
+import { ThemeProvider } from "@/lib/ThemeContext";
+import { GamificationProvider } from "@/lib/GamificationContext";
 
 export const metadata: Metadata = {
   title: "Andres | Backend Engineer & Systems Developer",
@@ -43,9 +45,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
+        <GamificationProvider>
+          <ThemeProvider>
+            <LanguageProvider>
+              {children}
+            </LanguageProvider>
+          </ThemeProvider>
+        </GamificationProvider>
       </body>
     </html>
   );

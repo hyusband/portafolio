@@ -7,6 +7,10 @@ import SkillsGrid from '@/components/SkillsGrid';
 import ExperienceTimeline from '@/components/ExperienceTimeline';
 import ContactForm from '@/components/ContactForm';
 import LanguageToggle from '@/components/LanguageToggle';
+import ThemeCustomizer from '@/components/ThemeCustomizer';
+import AchievementsPanel from '@/components/AchievementsPanel';
+import KonamiCode from '@/components/KonamiCode';
+import MatrixRain from '@/components/MatrixRain';
 
 export default function PortfolioContent() {
   const { t } = useLanguage();
@@ -18,6 +22,18 @@ export default function PortfolioContent() {
     <main className="bg-hw-black grid-bg scanline">
       {/* Language Toggle */}
       <LanguageToggle />
+      
+      {/* Theme Customizer */}
+      <ThemeCustomizer />
+      
+      {/* Achievements Panel */}
+      <AchievementsPanel />
+      
+      {/* Konami Code Listener */}
+      <KonamiCode />
+      
+      {/* Matrix Rain Effect */}
+      <MatrixRain />
 
       {/* Hero Section */}
       <section className="hero-section">

@@ -1304,3 +1304,361 @@ html {
 .stagger-children > * {
   animation-delay: calc(var(--stagger-delay, 0.1s) * var(--item-index, 0));
 }
+
+/* Theme Customizer */
+.theme-customizer {
+  position: fixed;
+  top: 5rem;
+  right: 2rem;
+  z-index: 999;
+}
+
+.theme-toggle-btn {
+  width: 3rem;
+  height: 3rem;
+  background: var(--color-hw-darker);
+  border: 1px solid var(--color-hw-border);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--color-hw-terminal);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+  transform: scale(1.05);
+}
+
+.theme-panel {
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  width: 320px;
+  background: var(--color-hw-darker);
+  border: 1px solid var(--color-hw-border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-hw-border);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--color-hw-text-dim);
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: var(--color-hw-terminal);
+}
+
+.theme-section {
+  margin-bottom: 1.5rem;
+}
+
+.theme-section-title {
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-hw-text-dim);
+}
+
+.theme-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.theme-option {
+  background: transparent;
+  border: 1px solid var(--color-hw-border);
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.theme-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.theme-option.active {
+  border-width: 2px;
+}
+
+.theme-preview {
+  display: flex;
+  gap: 0.25rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.theme-preview span {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.125rem;
+}
+
+.theme-name {
+  font-size: 0.75rem;
+}
+
+.font-size-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.font-size-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--color-hw-border);
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.875rem;
+}
+
+.font-size-btn:hover {
+  border-color: var(--color-hw-terminal);
+}
+
+.font-size-btn.active {
+  background: var(--color-hw-terminal);
+  color: var(--color-hw-black);
+  border-color: var(--color-hw-terminal);
+}
+
+.font-size-btn:nth-child(1) span {
+  font-size: 0.75rem;
+}
+
+.font-size-btn:nth-child(2) span {
+  font-size: 1rem;
+}
+
+.font-size-btn:nth-child(3) span {
+  font-size: 1.25rem;
+}
+
+.theme-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-hw-border);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .theme-customizer {
+    top: 4rem;
+    right: 1rem;
+  }
+
+  .theme-panel {
+    width: 280px;
+  }
+}
+
+/* Apply base font size */
+html {
+  font-size: var(--base-font-size, 16px);
+}
+
+/* Achievements Panel */
+.achievements-panel {
+  position: fixed;
+  top: 8rem;
+  right: 2rem;
+  z-index: 998;
+}
+
+.achievements-btn {
+  width: 3rem;
+  height: 3rem;
+  background: var(--color-hw-darker);
+  border: 1px solid var(--color-hw-border);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.achievements-btn:hover {
+  border-color: var(--color-hw-terminal);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+  transform: scale(1.05);
+}
+
+.achievement-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--color-hw-terminal);
+  color: var(--color-hw-black);
+  font-size: 0.625rem;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+}
+
+.achievements-dropdown {
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  width: 320px;
+  max-height: 500px;
+  background: var(--color-hw-darker);
+  border: 1px solid var(--color-hw-border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease-out;
+  overflow-y: auto;
+}
+
+.achievements-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-hw-border);
+}
+
+.progress-section {
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: var(--color-hw-grey);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-hw-terminal), var(--color-hw-electric));
+  transition: width 0.5s ease;
+}
+
+.achievements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--color-hw-grey);
+  border: 1px solid var(--color-hw-border);
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+}
+
+.achievement-item.unlocked {
+  border-color: var(--color-hw-terminal);
+  background: rgba(0, 255, 65, 0.05);
+}
+
+.achievement-item.locked {
+  opacity: 0.5;
+}
+
+.achievement-icon {
+  font-size: 1.5rem;
+}
+
+.achievement-info {
+  flex: 1;
+}
+
+.achievement-name {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.achievement-desc {
+  font-size: 0.75rem;
+}
+
+.unlock-badge {
+  color: var(--color-hw-terminal);
+  font-size: 1.25rem;
+}
+
+/* Konami Notification */
+.konami-notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-hw-darker);
+  border: 2px solid var(--color-hw-terminal);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+  z-index: 10000;
+  box-shadow: 0 0 50px rgba(0, 255, 65, 0.5);
+  animation: konamiPulse 0.5s ease-in-out;
+}
+
+@keyframes konamiPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements-panel {
+    top: 7rem;
+    right: 1rem;
+  }
+
+  .achievements-dropdown {
+    width: 280px;
+  }
+}
