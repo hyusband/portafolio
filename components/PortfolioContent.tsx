@@ -1,6 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/lib/LanguageContext';
+import { useTypingEffect, useScrollReveal } from '@/lib/animations';
 import GitHubStats from '@/components/GitHubStats';
 import SkillsGrid from '@/components/SkillsGrid';
 import ExperienceTimeline from '@/components/ExperienceTimeline';
@@ -9,6 +10,9 @@ import LanguageToggle from '@/components/LanguageToggle';
 
 export default function PortfolioContent() {
   const { t } = useLanguage();
+  const typedText = useTypingEffect(t.hero.subtitle, 80);
+  
+  useScrollReveal();
 
   return (
     <main className="bg-hw-black grid-bg scanline">
@@ -41,7 +45,8 @@ export default function PortfolioContent() {
               ANDRES
             </h1>
             <div className="text-hw-terminal font-mono hero-subtitle">
-              <span className="cursor">{t.hero.subtitle}</span>
+              <span className="typing-text">{typedText}</span>
+              <span className="typing-cursor"></span>
             </div>
             <p className="text-hw-text-dim hero-description">
               {t.hero.description} <span className="text-hw-terminal font-mono">{t.hero.description2}</span>,{' '}
@@ -107,7 +112,7 @@ export default function PortfolioContent() {
       </section>
 
       {/* Backend Expertise Section */}
-      <section className="projects-section">
+      <section className="projects-section reveal-on-scroll">
         <div className="section-container">
           <h2 className="section-title">{t.backendExpertise.title}</h2>
           
@@ -176,7 +181,7 @@ export default function PortfolioContent() {
       <SkillsGrid />
 
       {/* Projects - Simplified for now, full translation in next step */}
-      <section id="projects" className="projects-section">
+      <section id="projects" className="projects-section reveal-on-scroll">
         <div className="section-container">
           <h2 className="section-title">{t.projects.title}</h2>
           
