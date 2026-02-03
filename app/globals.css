@@ -1134,8 +1134,8 @@ html {
 /* Language Toggle */
 .language-toggle {
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1.5rem;
   z-index: 1000;
 }
 
@@ -1315,8 +1315,8 @@ html {
 /* Theme Customizer */
 .theme-customizer {
   position: fixed;
-  top: 5rem;
-  right: 2rem;
+  top: 5.5rem;
+  right: 1.5rem;
   z-index: 999;
 }
 
@@ -1499,7 +1499,12 @@ html {
 
 @media (max-width: 768px) {
   .theme-customizer {
-    top: 4rem;
+    top: 5rem;
+    right: 1rem;
+  }
+
+  .achievements-panel {
+    top: 9rem;
     right: 1rem;
   }
 
@@ -1516,8 +1521,8 @@ html {
 /* Achievements Panel */
 .achievements-panel {
   position: fixed;
-  top: 8rem;
-  right: 2rem;
+  top: 10rem;
+  right: 1.5rem;
   z-index: 998;
 }
 
